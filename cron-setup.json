@@ -1,0 +1,34 @@
+{
+  "jobs": [
+    {
+      "name": "trend-monitor-morning",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *",
+        "tz": "Europe/Paris"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run trend monitoring for morning session. Search for: 1) Hot topics on X/Twitter in tech/startup space, 2) Popular discussions on Reddit (r/startups, r/SaaS, r/Entrepreneur, r/webdev), 3) Pain points and complaints, 4) Emerging trends and opportunities. Focus from past 12 hours. Save summary to /data/.openclaw/workspace/projects/trend-monitor/daily-summaries/YYYY-MM-DD-morning.md following TEMPLATE.md format. Extract actionable ideas and save to ideas-archive.",
+        "model": "openrouter/moonshotai/kimi-k2.5",
+        "thinking": "medium"
+      }
+    },
+    {
+      "name": "trend-monitor-evening",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 20 * * *",
+        "tz": "Europe/Paris"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run trend monitoring for evening session. Search for: 1) Hot topics on X/Twitter in tech/startup space, 2) Popular discussions on Reddit (r/startups, r/SaaS, r/Entrepreneur, r/webdev), 3) Pain points and complaints, 4) Emerging trends and opportunities. Focus from past 12 hours. Save summary to /data/.openclaw/workspace/projects/trend-monitor/daily-summaries/YYYY-MM-DD-evening.md following TEMPLATE.md format. Cross-reference with morning summary. Extract actionable ideas and save to ideas-archive.",
+        "model": "openrouter/moonshotai/kimi-k2.5",
+        "thinking": "medium"
+      }
+    }
+  ]
+}
